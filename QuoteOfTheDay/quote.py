@@ -9,6 +9,7 @@ def quote(msg):
 	tts = gTTS(text=message, lang='en')
 	tts.save("quote.mp3")
 	os.system("mpg321 quote.mp3")
+	os.remove('quote.mp3')
 
 file = "quotes"
 List =[]
