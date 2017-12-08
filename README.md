@@ -17,6 +17,6 @@ nano .bashrc
 
 [add at the EOF]
 
-./hi.py > /dev/null 2>&1
+./hi.py [or] multiTTS.py> /dev/null 2> &1
 
-./quote.py > /dev/null 2>&1
+./quote.py > /dev/null 2> &1
