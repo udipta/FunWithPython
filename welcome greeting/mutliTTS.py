@@ -6,7 +6,7 @@ import os
 def textToSpeech(msg,language):
 	tts = gTTS(text=msg, lang=language)
 	tts.save("hi.mp3")
-	os.system('mpg321 hi.mp3')
+	os.system('mpg321 -q hi.mp3')
 	os.remove('hi.mp3')
 
 txt = ['FOR ENGLISH PRESS 1','বাংলার জন্য ২ টিপুন','हिंदी के लिए ३ दबाएं']
