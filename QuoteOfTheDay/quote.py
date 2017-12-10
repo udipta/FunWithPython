@@ -11,6 +11,15 @@ def quote(msg):
 	os.system("mpg321 -q quote.mp3")
 	os.remove('quote.mp3')
 
+	
+def chkNet():
+	import requests
+	try:
+		response = requests.get("https://www.google.com")
+		return True
+	except requests.ConnectionError:
+		return False
+
 file = "quotes"
 List =[]
 with open(file, 'r+') as f:
@@ -22,4 +31,5 @@ with open(file, 'r+') as f:
 		if line == "":
 			break
 
-quote(random.choice(List))
+if chkNet():
+	quote(random.choice(List))
