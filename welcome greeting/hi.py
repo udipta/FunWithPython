@@ -19,9 +19,7 @@ def chkNet():
 		return False
   
 out = os.popen('date "+%r"').read()
-usr = os.popen('whoami').read()
-host = os.popen('hostname').read()
-msg = 'Hi' + usr + '! welcome to '+ host +'! the time is ' + out[:-5]
+msg = 'Hi' + os.getlogin() + '! welcome to '+ os.uname()[1] +'! the time is ' + out[:-5]
 
 if chkNet():
   TextToSpeech(msg)
