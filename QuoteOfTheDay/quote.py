@@ -20,16 +20,14 @@ def chkNet():
 	except requests.ConnectionError:
 		return False
 
-file = "quotes"
-List =[]
-with open(file, 'r+') as f:
-	lines = f.readlines()
-	for i in range(0, len(lines)):
-		line = lines[i]
-		line = line[:-2]
-		List.append(line)
-		if line == "":
-			break
+	
+def readfile(filename):
+	with open(filename, 'r+') as f:
+		temp = f.read().splitlines()
+		return temp
+
+List = readFile('quotes')
+
 
 if chkNet():
 	quote(random.choice(List))
