@@ -21,7 +21,7 @@ def chkNet():
 		return False
 
 	
-def readfile(filename):
+def readFile(filename):
 	with open(filename, 'r+') as f:
 		temp = f.read().splitlines()
 		return temp
