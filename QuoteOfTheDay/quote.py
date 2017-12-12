@@ -10,16 +10,6 @@ def quote(msg):
 	tts.save("quote.mp3")
 	os.system("mpg321 -q quote.mp3")
 	os.remove('quote.mp3')
-
-	
-def chkNet():
-	import requests
-	try:
-		response = requests.get("https://www.google.com")
-		return True
-	except requests.ConnectionError:
-		return False
-
 	
 def readFile(filename):
 	with open(filename, 'r+') as f:
@@ -27,7 +17,7 @@ def readFile(filename):
 		return temp
 
 List = readFile('quotes')
+conn = os.popen('timeout 0.11 nm-online').read()
 
-
-if chkNet():
+if conn == '':
 	quote(random.choice(List))
