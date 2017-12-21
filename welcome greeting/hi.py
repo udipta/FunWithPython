@@ -8,9 +8,16 @@ def TextToSpeech(msg):
   os.system("mpg321 -q hi.mp3")
   os.remove('hi.mp3')
 
+def chkNet():
+	import requests
+	try:
+		response = requests.get("https://www.google.com")
+		return True
+	except requests.ConnectionError:
+		return False
+  
 out = os.popen('date "+%r"').read()
 msg = 'Hi' + os.getlogin() + '! welcome to '+ os.uname()[1] +'! the time is ' + out[:-5]
 
-conn = os.popen('timeout 0.11 nm-online').read()
-if conn == '':
+if chkNet():
   TextToSpeech(msg)
